@@ -481,17 +481,18 @@
   function docsForSidebar() {
     const route = parseRoute();
     const docs = filteredDocs();
+    const byPrefix = (prefix) => docs.filter((doc) => (doc.relativePath || "").startsWith(prefix));
 
     if (route.type === "home") {
       return docs;
     }
 
     if (route.type === "section" && route.sectionId === "brand") {
-      return docs.filter((doc) => doc.sectionId === "brand");
+      return byPrefix("10_品牌/");
     }
 
     if (route.type === "section" && route.sectionId === "co-create") {
-      return docs.filter((doc) => doc.sectionId === "co-create");
+      return byPrefix("20_共创/");
     }
 
     if (route.type === "section" && route.sectionId === "product") {
@@ -506,11 +507,11 @@
       if (current.isProductDoc) {
         return docs.filter((doc) => doc.isProductDoc);
       }
-      if (current.sectionId === "brand") {
-        return docs.filter((doc) => doc.sectionId === "brand");
+      if ((current.relativePath || "").startsWith("10_品牌/")) {
+        return byPrefix("10_品牌/");
       }
-      if (current.sectionId === "co-create") {
-        return docs.filter((doc) => doc.sectionId === "co-create");
+      if ((current.relativePath || "").startsWith("20_共创/")) {
+        return byPrefix("20_共创/");
       }
     }
 
@@ -558,9 +559,44 @@
     });
 
     const sortNode = (node) => {
+      const rootFolderWeight = (item) => {
+        if (item.type !== "folder") {
+          return 99;
+        }
+        const key = item.key || "";
+        if (key.startsWith("10_品牌")) {
+          return 1;
+        }
+        if (key.startsWith("20_共创")) {
+          return 2;
+        }
+        if (key.startsWith("30_")) {
+          return 3;
+        }
+        if (key.startsWith("40_")) {
+          return 4;
+        }
+        if (key.startsWith("50_")) {
+          return 5;
+        }
+        if (key.startsWith("00_入口与使用说明")) {
+          return 8;
+        }
+        if (key.startsWith("90_内部源档")) {
+          return 9;
+        }
+        return 6;
+      };
+
       node.children.sort((a, b) => {
         if (a.type !== b.type) {
           return a.type === "folder" ? -1 : 1;
+        }
+        if (node.key === "root" && a.type === "folder" && b.type === "folder") {
+          const weightDelta = rootFolderWeight(a) - rootFolderWeight(b);
+          if (weightDelta !== 0) {
+            return weightDelta;
+          }
         }
         const aLabel = a.type === "folder" ? a.raw || a.label : a.doc.relativePath;
         const bLabel = b.type === "folder" ? b.raw || b.label : b.doc.relativePath;
@@ -1216,6 +1252,8 @@
   function renderHomeV2() {
     const quickAccess = data.home.quickAccessCards || [];
     const brandLogoUrl = getAssetUrl("brand-logo") || "./assets/extracted/brand-logo.jpeg";
+    const brandSpaceUrl = getAssetUrl("brand-space") || "./assets/extracted/brand-space.png";
+    const coCreateSpaceUrl = getAssetUrl("co-create-space") || "./assets/extracted/co-create-space.png";
     const heroQuote = `
       <span class="hero-accent">新一代</span>品牌<br>
       是<span class="hero-accent">利益相关者</span>的<span class="hero-accent">交互产物</span><br>
@@ -1242,7 +1280,9 @@
             </div>
             <div class="dual-entry-grid dual-entry-grid-v2" id="home-entry">
               <a class="dual-entry-card brand" href="#/brand">
-                <div class="dual-entry-icon">${renderLineIcon("brand")}</div>
+                <div class="dual-entry-icon">
+                  <img src="${escapeHtml(brandSpaceUrl)}" alt="品牌空间">
+                </div>
                 <div class="dual-entry-copy">
                   <h2>品牌</h2>
                   <h3>理解品牌的本质与系统</h3>
@@ -1251,7 +1291,9 @@
                 </div>
               </a>
               <a class="dual-entry-card cocreate" href="#/co-create">
-                <div class="dual-entry-icon">${renderLineIcon("cocreate")}</div>
+                <div class="dual-entry-icon">
+                  <img src="${escapeHtml(coCreateSpaceUrl)}" alt="共创空间">
+                </div>
                 <div class="dual-entry-copy">
                   <h2>共创</h2>
                   <h3>掌握共创的方法与推进方式</h3>

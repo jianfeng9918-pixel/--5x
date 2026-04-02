@@ -13,6 +13,7 @@
 | IMG-001 | brand-logo.jpeg | `./assets/managed/slots/IMG-001.jpeg` | `./assets/managed/slots/IMG-001.jpeg` |
 | IMG-002 | brand-space.png | `./assets/managed/slots/IMG-002.png` | `./assets/managed/slots/IMG-002.png` |
 | IMG-003 | 7eleven-system-focus.svg | `./assets/managed/slots/IMG-003.svg` | `./assets/managed/slots/IMG-003.svg` |
+| IMG-033 | haidilao-system-focus.svg | `./assets/managed/slots/IMG-033.svg` | `./assets/managed/slots/IMG-033.svg` |
 | IMG-004 | laoxiangji-system-focus.svg | `./assets/managed/slots/IMG-004.svg` | `./assets/managed/slots/IMG-004.svg` |
 | IMG-005 | miniso-system-focus.svg | `./assets/managed/slots/IMG-005.svg` | `./assets/managed/slots/IMG-005.svg` |
 | IMG-006 | tea-system-focus.svg | `./assets/managed/slots/IMG-006.svg` | `./assets/managed/slots/IMG-006.svg` |

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-01T17:05:36.816Z",
+  "generatedAt": "2026-04-02T05:27:30.046Z",
   "slots": [
     {
       "id": "IMG-001",
@@ -33,6 +33,18 @@
       "defaultPath": "./assets/managed/slots/IMG-003.svg",
       "overridePath": "",
       "currentPath": "./assets/managed/slots/IMG-003.svg",
+      "recommendedRatio": "auto",
+      "usage": "",
+      "pageHints": []
+    },
+    {
+      "id": "IMG-033",
+      "label": "haidilao-system-focus.svg",
+      "sourcePath": "./assets/extracted/case-diagrams/haidilao-system-focus.svg",
+      "sourceRelativePath": "assets/extracted/case-diagrams/haidilao-system-focus.svg",
+      "defaultPath": "./assets/managed/slots/IMG-033.svg",
+      "overridePath": "",
+      "currentPath": "./assets/managed/slots/IMG-033.svg",
       "recommendedRatio": "auto",
       "usage": "",
       "pageHints": []

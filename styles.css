@@ -28,8 +28,8 @@
   --radius-md: 16px;
   --sidebar-width: clamp(312px, 22vw, 372px);
   --content-width: 1220px;
-  --serif: "Baskerville Old Face", "Georgia", "Songti SC", "STSong", serif;
-  --sans: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --serif: "Source Han Sans SC", "Noto Sans SC", "Source Han Sans CN", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --sans: "Source Han Sans SC", "Noto Sans SC", "Source Han Sans CN", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 * {
@@ -162,7 +162,7 @@ input {
 }
 
 .brand-copy strong {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -489,7 +489,7 @@ input {
 .doc-hero-copy h1,
 .protected-card h1 {
   margin: 10px 0 14px;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: clamp(40px, 5vw, 72px);
   line-height: 1.02;
   letter-spacing: 0.01em;
@@ -590,7 +590,7 @@ input {
 .quick-chip strong,
 .reading-step strong {
   margin: 0;
-  font-family: var(--serif);
+  font-family: var(--sans);
   color: var(--ink-strong);
 }
 
@@ -1056,7 +1056,7 @@ input {
 .doc-content h4 {
   margin-top: 1.45em;
   margin-bottom: 0.62em;
-  font-family: var(--serif);
+  font-family: var(--sans);
   line-height: 1.16;
   color: var(--ink-strong);
 }
@@ -1420,7 +1420,7 @@ body.route-home::after {
 
 .home-hero-copy h1 {
   margin: 0;
-  font-family: "Noto Serif SC", "Source Han Serif SC", var(--serif);
+  font-family: var(--sans);
   font-size: clamp(40px, 6vw, 74px);
   line-height: 1.2;
   letter-spacing: 0.01em;
@@ -1484,7 +1484,7 @@ body.route-home::after {
 
 .home-section-head h2 {
   margin: 0;
-  font-family: "Noto Serif SC", "Source Han Serif SC", var(--serif);
+  font-family: var(--sans);
   font-size: clamp(30px, 4vw, 48px);
   line-height: 1.18;
   color: #21201d;
@@ -1514,7 +1514,7 @@ body.route-home::after {
 .dual-entry-card {
   position: relative;
   display: grid;
-  grid-template-columns: 88px 1fr;
+  grid-template-columns: 116px 1fr;
   gap: 26px;
   align-items: start;
   min-height: 360px;
@@ -1534,19 +1534,19 @@ body.route-home::after {
 }
 
 .dual-entry-card.brand {
-  background: #f3ede6;
+  background: linear-gradient(180deg, #f6ede5 0%, #f2e7dc 100%);
 }
 
 .dual-entry-card.brand:hover {
-  background: #ebe2d8;
+  background: linear-gradient(180deg, #efe3d6 0%, #eadbcc 100%);
 }
 
 .dual-entry-card.cocreate {
-  background: #edf0ea;
+  background: linear-gradient(180deg, #ecf2ea 0%, #e4ece3 100%);
 }
 
 .dual-entry-card.cocreate:hover {
-  background: #e3e8de;
+  background: linear-gradient(180deg, #e4ece1 0%, #dce5d9 100%);
 }
 
 .dual-entry-card::after {
@@ -1564,9 +1564,17 @@ body.route-home::after {
 }
 
 .dual-entry-icon {
-  width: 72px;
-  height: 72px;
+  width: 104px;
+  height: 104px;
   color: #2b2926;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(109, 90, 70, 0.12);
+  background: rgba(255, 252, 248, 0.82);
+  box-shadow: 0 12px 24px rgba(88, 70, 52, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dual-entry-icon svg,
@@ -1580,11 +1588,26 @@ body.route-home::after {
   stroke-linejoin: round;
 }
 
+.dual-entry-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dual-entry-card.brand .dual-entry-icon img {
+  object-position: center 34%;
+}
+
+.dual-entry-card.cocreate .dual-entry-icon img {
+  object-position: center 42%;
+}
+
 .dual-entry-copy h2 {
   margin: 0 0 8px;
-  font-family: "Noto Serif SC", "Source Han Serif SC", var(--serif);
+  font-family: var(--sans);
   font-size: clamp(34px, 4vw, 52px);
   color: #1e1e1b;
+  font-weight: 800;
 }
 
 .dual-entry-copy h3 {
@@ -1615,6 +1638,7 @@ body.route-home::after {
   font-size: 14px;
   letter-spacing: 0.04em;
   transition: background 0.22s ease, color 0.22s ease;
+  font-weight: 700;
 }
 
 .dual-entry-card:hover .dual-entry-button {
@@ -1950,7 +1974,7 @@ body.route-home::after {
 }
 
 .home-masthead-title {
-  font-family: "Noto Serif SC", "Source Han Serif SC", var(--serif);
+  font-family: var(--sans);
   font-size: clamp(22px, 2.2vw, 30px);
   line-height: 1.1;
   color: #1f1d1a;
@@ -1994,11 +2018,11 @@ body.route-home::after {
 }
 
 .home-hero-v2 .dual-entry-card.brand {
-  background-color: #f1e9e0;
+  background-color: #f3e9df;
 }
 
 .home-hero-v2 .dual-entry-card.cocreate {
-  background-color: #e8ede7;
+  background-color: #e7efe7;
 }
 
 .home-scroll-cue {
@@ -2854,7 +2878,7 @@ body.route-knowledge::after {
 }
 
 .journey-doc strong {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 22px;
   line-height: 1.2;
 }
@@ -3264,6 +3288,22 @@ body.route-knowledge::after {
   box-shadow: 0 14px 30px rgba(88, 70, 52, 0.06);
 }
 
+.route-knowledge .journey-group-card:nth-child(4n + 1) {
+  background: linear-gradient(180deg, rgba(255, 251, 247, 0.98), rgba(245, 237, 228, 0.98));
+}
+
+.route-knowledge .journey-group-card:nth-child(4n + 2) {
+  background: linear-gradient(180deg, rgba(250, 253, 249, 0.98), rgba(236, 244, 236, 0.98));
+}
+
+.route-knowledge .journey-group-card:nth-child(4n + 3) {
+  background: linear-gradient(180deg, rgba(251, 250, 255, 0.98), rgba(240, 238, 249, 0.98));
+}
+
+.route-knowledge .journey-group-card:nth-child(4n + 4) {
+  background: linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(245, 240, 231, 0.98));
+}
+
 .route-knowledge .journey-group-head,
 .route-knowledge .journey-group-head.supplemental {
   align-items: flex-start;
@@ -3276,10 +3316,71 @@ body.route-knowledge::after {
   font-weight: 800;
 }
 
+.route-knowledge .journey-group-card:nth-child(4n + 2) .journey-group-index {
+  background: linear-gradient(135deg, rgba(88, 138, 103, 0.14), rgba(216, 234, 216, 0.82));
+  color: #476d4f;
+}
+
+.route-knowledge .journey-group-card:nth-child(4n + 3) .journey-group-index {
+  background: linear-gradient(135deg, rgba(102, 88, 164, 0.14), rgba(225, 220, 244, 0.84));
+  color: #5f4ea0;
+}
+
+.route-knowledge .journey-group-card:nth-child(4n + 4) .journey-group-index {
+  background: linear-gradient(135deg, rgba(176, 123, 43, 0.14), rgba(243, 228, 196, 0.84));
+  color: #9a6a1e;
+}
+
+.route-knowledge .journey-group-card:nth-child(4n + 1) .journey-doc {
+  background: rgba(255, 250, 246, 0.95);
+}
+
+.route-knowledge .journey-group-card:nth-child(4n + 2) .journey-doc {
+  background: rgba(249, 253, 248, 0.95);
+}
+
+.route-knowledge .journey-group-card:nth-child(4n + 3) .journey-doc {
+  background: rgba(250, 249, 255, 0.95);
+}
+
+.route-knowledge .journey-group-card:nth-child(4n + 4) .journey-doc {
+  background: rgba(255, 251, 246, 0.95);
+}
+
 .route-knowledge .journey-doc {
   background: rgba(255, 253, 249, 0.96);
   border: 1px solid rgba(122, 101, 82, 0.12);
   box-shadow: 0 8px 18px rgba(88, 70, 52, 0.04);
+}
+
+.route-knowledge .reading-step:nth-child(3n + 1) {
+  background: linear-gradient(180deg, rgba(251, 245, 238, 0.98), rgba(247, 238, 229, 0.98));
+  border-color: rgba(184, 92, 56, 0.16);
+}
+
+.route-knowledge .reading-step:nth-child(3n + 2) {
+  background: linear-gradient(180deg, rgba(246, 250, 245, 0.98), rgba(237, 244, 236, 0.98));
+  border-color: rgba(88, 138, 103, 0.14);
+}
+
+.route-knowledge .reading-step:nth-child(3n + 3) {
+  background: linear-gradient(180deg, rgba(248, 247, 253, 0.98), rgba(239, 236, 247, 0.98));
+  border-color: rgba(95, 78, 160, 0.14);
+}
+
+.route-knowledge .reading-step:nth-child(3n + 1) span {
+  background: linear-gradient(135deg, rgba(184, 92, 56, 0.18), rgba(237, 221, 205, 0.84));
+  color: #8f4b31;
+}
+
+.route-knowledge .reading-step:nth-child(3n + 2) span {
+  background: linear-gradient(135deg, rgba(88, 138, 103, 0.18), rgba(216, 234, 216, 0.9));
+  color: #476d4f;
+}
+
+.route-knowledge .reading-step:nth-child(3n + 3) span {
+  background: linear-gradient(135deg, rgba(102, 88, 164, 0.18), rgba(225, 220, 244, 0.92));
+  color: #5f4ea0;
 }
 
 .image-slot-badge {
@@ -3929,5 +4030,145 @@ body.route-knowledge::after {
 
   .route-knowledge .sidebar-stats div:nth-child(3) {
     grid-column: auto;
+  }
+}
+
+/* 5.5 compact sticky header and denser reading rail */
+.route-knowledge .site-header {
+  top: 6px;
+  gap: 6px 10px;
+  padding: 6px 12px;
+  margin-bottom: 8px;
+  border-radius: 14px;
+}
+
+.route-knowledge .brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+}
+
+.route-knowledge .brand-copy strong {
+  font-size: 14px;
+}
+
+.route-knowledge .brand-kicker {
+  font-size: 7px;
+  letter-spacing: 0.15em;
+}
+
+.route-knowledge .top-nav {
+  gap: 6px;
+}
+
+.route-knowledge .top-nav button {
+  min-height: 36px;
+  padding: 4px 10px;
+  font-size: 14px;
+}
+
+.route-knowledge .header-tools {
+  gap: 6px;
+}
+
+.route-knowledge .search-field,
+.route-knowledge .internal-toggle {
+  min-height: 36px;
+  padding: 5px 10px;
+}
+
+.route-knowledge .search-field {
+  flex: 0 1 220px;
+  max-width: 220px;
+}
+
+.route-knowledge .site-layout {
+  grid-template-columns: minmax(284px, 300px) minmax(0, 1fr);
+  gap: 14px;
+}
+
+.route-knowledge .sidebar-card.sidebar-stats {
+  padding: 8px;
+}
+
+.route-knowledge .sidebar-stats {
+  gap: 6px;
+}
+
+.route-knowledge .sidebar-stats div {
+  min-height: 74px;
+  padding: 8px 8px 6px;
+}
+
+.route-knowledge .sidebar-stats span {
+  font-size: 11px;
+}
+
+.route-knowledge .sidebar-stats strong {
+  font-size: 20px;
+}
+
+.route-knowledge .focus-links {
+  gap: 6px;
+}
+
+.route-knowledge .focus-link {
+  min-height: 60px;
+  padding: 10px 12px;
+}
+
+.route-knowledge .focus-link strong {
+  font-size: 14px;
+}
+
+.route-knowledge .focus-link span {
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.route-knowledge .doc-hero-copy h1 {
+  font-size: clamp(26px, 2.2vw, 38px);
+  max-width: 16ch;
+}
+
+@media (min-width: 1221px) and (max-width: 1360px) {
+  .route-knowledge .site-header {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "brand nav tools";
+    align-items: center;
+  }
+
+  .route-knowledge .top-nav {
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .route-knowledge .header-tools {
+    width: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 1220px) {
+  .route-knowledge .site-header {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "brand tools"
+      "nav nav";
+    align-items: start;
+  }
+
+  .route-knowledge .top-nav {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .route-knowledge .search-field {
+    flex-basis: 220px;
+    max-width: none;
   }
 }

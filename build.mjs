@@ -407,13 +407,9 @@ function resolveAssetSourceFiles() {
     const businessDeck = files.find((name) => /^2026.*\.pptx$/i.test(name));
     const onboardingDeck = files.find((name) => /v05_201124\.pptx$/i.test(name));
 
-    if (!businessDeck || !onboardingDeck) {
-      throw new Error("Unable to locate PPTX sources for visual assets.");
-    }
-
     return {
-      businessDeck: path.join(contentRoot, businessDeck),
-      onboardingDeck: path.join(contentRoot, onboardingDeck)
+      businessDeck: businessDeck ? path.join(contentRoot, businessDeck) : null,
+      onboardingDeck: onboardingDeck ? path.join(contentRoot, onboardingDeck) : null
     };
   });
 }
@@ -428,7 +424,7 @@ async function prepareAssets(sourceFiles) {
       usage: "header logo",
       group: "identity",
       slot: "logo",
-      sourceFile: sourceFiles.businessDeck,
+      sourceFile: sourceFiles?.businessDeck || null,
       entryName: "ppt/media/image1.jpeg",
       outputName: "brand-logo.jpeg"
     },
@@ -438,7 +434,7 @@ async function prepareAssets(sourceFiles) {
       usage: "home hero",
       group: "hero",
       slot: "home-cover",
-      sourceFile: sourceFiles.businessDeck,
+      sourceFile: sourceFiles?.businessDeck || null,
       entryName: "ppt/media/image13.png",
       outputName: "hero-cover.png"
     },
@@ -448,7 +444,7 @@ async function prepareAssets(sourceFiles) {
       usage: "brand content image",
       group: "content",
       slot: "company-profile",
-      sourceFile: sourceFiles.businessDeck,
+      sourceFile: sourceFiles?.businessDeck || null,
       entryName: "ppt/media/image12.jpeg",
       outputName: "company-profile.jpeg"
     },
@@ -458,7 +454,7 @@ async function prepareAssets(sourceFiles) {
       usage: "co-create hero",
       group: "section",
       slot: "co-create-hero",
-      sourceFile: sourceFiles.onboardingDeck,
+      sourceFile: sourceFiles?.onboardingDeck || null,
       entryName: "ppt/media/image8.png",
       outputName: "co-create-space.png"
     },
@@ -468,7 +464,7 @@ async function prepareAssets(sourceFiles) {
       usage: "brand hero",
       group: "section",
       slot: "brand-hero",
-      sourceFile: sourceFiles.onboardingDeck,
+      sourceFile: sourceFiles?.onboardingDeck || null,
       entryName: "ppt/media/image9.png",
       outputName: "brand-space.png"
     },
@@ -478,7 +474,7 @@ async function prepareAssets(sourceFiles) {
       usage: "product hero",
       group: "section",
       slot: "product-hero",
-      sourceFile: sourceFiles.onboardingDeck,
+      sourceFile: sourceFiles?.onboardingDeck || null,
       entryName: "ppt/media/image13.jpeg",
       outputName: "product-scene.jpeg"
     }
@@ -487,14 +483,24 @@ async function prepareAssets(sourceFiles) {
   const manifest = {};
 
   for (const asset of baseAssets) {
-    const zip = new AdmZip(asset.sourceFile);
-    const entry = zip.getEntry(asset.entryName);
-    if (!entry) {
-      throw new Error(`Asset entry not found: ${asset.entryName}`);
-    }
-
     const outputPath = path.join(assetsDir, asset.outputName);
-    await fs.writeFile(outputPath, entry.getData());
+    let reusedExisting = false;
+
+    if (asset.sourceFile && (await pathExists(asset.sourceFile))) {
+      const zip = new AdmZip(asset.sourceFile);
+      const entry = zip.getEntry(asset.entryName);
+      if (entry) {
+        await fs.writeFile(outputPath, entry.getData());
+      } else if (await pathExists(outputPath)) {
+        reusedExisting = true;
+      } else {
+        throw new Error(`Asset entry not found: ${asset.entryName}`);
+      }
+    } else if (await pathExists(outputPath)) {
+      reusedExisting = true;
+    } else {
+      throw new Error(`Missing asset source and existing export for: ${asset.outputName}`);
+    }
 
     manifest[asset.id] = {
       id: asset.id,
@@ -502,8 +508,9 @@ async function prepareAssets(sourceFiles) {
       usage: asset.usage,
       group: asset.group,
       slot: asset.slot,
-      sourceFile: asset.sourceFile,
+      sourceFile: asset.sourceFile || "",
       entryName: asset.entryName,
+      mode: reusedExisting ? "reused" : "extracted",
       relativePath: toPosix(path.relative(siteRoot, outputPath)),
       publicPath: toPublicPath(outputPath)
     };
