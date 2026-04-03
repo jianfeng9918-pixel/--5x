@@ -7,9 +7,30 @@
     <meta
       name="description"
       content="&#x4E9A;&#x9762;&#x77E5;&#x8BC6;&#x5E93;&#x672C;&#x5730;&#x6B63;&#x5F0F;&#x7248;&#x9884;&#x89C8;&#x3002;&#x4EE5;&#x54C1;&#x724C;&#x4E0E;&#x5171;&#x521B;&#x4E3A;&#x4E3B;&#x8F74;&#xFF0C;&#x7EC4;&#x7EC7;&#x54C1;&#x724C;&#x5B9A;&#x4E49;&#x3001;&#x54C1;&#x724C;&#x4F20;&#x5EFA;&#x7CFB;&#x7EDF;&#x3001;&#x4EA7;&#x54C1;&#x843D;&#x5730;&#x3001;&#x6848;&#x4F8B;&#x4E0E;&#x5DE5;&#x5177;&#x3002;">
+    <script>
+      (function () {
+        var hash = window.location.hash;
+        if (!hash || hash === "#") {
+          var base = window.location.href.split("#")[0];
+          try {
+            window.history.replaceState(null, "", base + "#/");
+          } catch (error) {
+            window.location.hash = "#/";
+          }
+        }
+      })();
+    </script>
     <link rel="stylesheet" href="./styles.css">
   </head>
-  <body>
+  <body class="route-home app-loading">
+    <script>
+      (function () {
+        var hash = window.location.hash;
+        var route = !hash || hash === "#" || hash === "#/" ? "route-home" : "route-knowledge";
+        document.body.classList.remove("route-home", "route-knowledge");
+        document.body.classList.add(route);
+      })();
+    </script>
     <div class="site-shell">
       <header class="site-header">
         <button class="brand-anchor" id="brandHomeButton" type="button" aria-label="&#x56DE;&#x5230;&#x9996;&#x9875;">

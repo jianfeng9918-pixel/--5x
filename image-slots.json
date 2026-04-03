@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-04-02T05:27:30.046Z",
+  "generatedAt": "2026-04-03T01:55:29.808Z",
   "slots": [
+    {
+      "id": "IMG-034",
+      "label": "brand-collage.png",
+      "sourcePath": "./assets/extracted/brand-collage.png",
+      "sourceRelativePath": "assets/extracted/brand-collage.png",
+      "defaultPath": "./assets/managed/slots/IMG-034.png",
+      "overridePath": "",
+      "currentPath": "./assets/managed/slots/IMG-034.png",
+      "recommendedRatio": "auto",
+      "usage": "",
+      "pageHints": []
+    },
     {
       "id": "IMG-001",
       "label": "brand-logo.jpeg",
@@ -21,6 +33,18 @@
       "defaultPath": "./assets/managed/slots/IMG-002.png",
       "overridePath": "",
       "currentPath": "./assets/managed/slots/IMG-002.png",
+      "recommendedRatio": "auto",
+      "usage": "",
+      "pageHints": []
+    },
+    {
+      "id": "IMG-035",
+      "label": "brand-wall.png",
+      "sourcePath": "./assets/extracted/brand-wall.png",
+      "sourceRelativePath": "assets/extracted/brand-wall.png",
+      "defaultPath": "./assets/managed/slots/IMG-035.png",
+      "overridePath": "",
+      "currentPath": "./assets/managed/slots/IMG-035.png",
       "recommendedRatio": "auto",
       "usage": "",
       "pageHints": []

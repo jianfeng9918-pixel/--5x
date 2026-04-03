@@ -1945,7 +1945,12 @@
 
   function init() {
     if (!window.location.hash || window.location.hash === "#") {
-      window.location.hash = "#/";
+      const base = window.location.href.split("#")[0];
+      try {
+        window.history.replaceState(null, "", `${base}#/`);
+      } catch (error) {
+        window.location.hash = "#/";
+      }
     }
     if (els.brandLogo && getAssetUrl("brand-logo")) {
       els.brandLogo.src = getAssetUrl("brand-logo");
@@ -1955,6 +1960,10 @@
     renderSearchResults();
     renderCurrentView();
     bindEvents();
+    window.requestAnimationFrame(function () {
+      document.body.classList.add("app-ready");
+      document.body.classList.remove("app-loading");
+    });
   }
 
   init();

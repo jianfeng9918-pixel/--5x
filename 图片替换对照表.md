@@ -10,8 +10,10 @@
 
 | 编号 | 当前图名 | 默认图路径 | 当前使用路径 |
 |---|---|---|---|
+| IMG-034 | brand-collage.png | `./assets/managed/slots/IMG-034.png` | `./assets/managed/slots/IMG-034.png` |
 | IMG-001 | brand-logo.jpeg | `./assets/managed/slots/IMG-001.jpeg` | `./assets/managed/slots/IMG-001.jpeg` |
 | IMG-002 | brand-space.png | `./assets/managed/slots/IMG-002.png` | `./assets/managed/slots/IMG-002.png` |
+| IMG-035 | brand-wall.png | `./assets/managed/slots/IMG-035.png` | `./assets/managed/slots/IMG-035.png` |
 | IMG-003 | 7eleven-system-focus.svg | `./assets/managed/slots/IMG-003.svg` | `./assets/managed/slots/IMG-003.svg` |
 | IMG-033 | haidilao-system-focus.svg | `./assets/managed/slots/IMG-033.svg` | `./assets/managed/slots/IMG-033.svg` |
 | IMG-004 | laoxiangji-system-focus.svg | `./assets/managed/slots/IMG-004.svg` | `./assets/managed/slots/IMG-004.svg` |
