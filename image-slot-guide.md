@@ -36,9 +36,11 @@
 | IMG-021 | four-facets-module.svg | `./assets/managed/slots/IMG-021.svg` | `./assets/managed/slots/IMG-021.svg` |
 | IMG-022 | four-quadrant-filter.svg | `./assets/managed/slots/IMG-022.svg` | `./assets/managed/slots/IMG-022.svg` |
 | IMG-023 | kickoff-alignment-frame.svg | `./assets/managed/slots/IMG-023.svg` | `./assets/managed/slots/IMG-023.svg` |
-| IMG-024 | organization-mechanism.svg | `./assets/managed/slots/IMG-024.svg` | `./assets/managed/slots/IMG-024.svg` |
+| IMG-024 | organization-mechanism.png | `./assets/managed/slots/IMG-024.png` | `./assets/managed/slots/IMG-024.png` |
 | IMG-025 | problem-discovery-frame.svg | `./assets/managed/slots/IMG-025.svg` | `./assets/managed/slots/IMG-025.svg` |
-| IMG-026 | project-route-8step.svg | `./assets/managed/slots/IMG-026.svg` | `./assets/managed/slots/IMG-026.svg` |
+| IMG-037 | project-route-8step-browser.png | `./assets/managed/slots/IMG-037.png` | `./assets/managed/slots/IMG-037.png` |
+| IMG-026 | project-route-8step.png | `./assets/managed/slots/IMG-026.png` | `./assets/managed/slots/IMG-026.png` |
+| IMG-036 | project-route-8step.svg | `./assets/managed/slots/IMG-036.svg` | `./assets/managed/slots/IMG-036.svg` |
 | IMG-027 | project-spiral.svg | `./assets/managed/slots/IMG-027.svg` | `./assets/managed/slots/IMG-027.svg` |
 | IMG-028 | service-blueprint.svg | `./assets/managed/slots/IMG-028.svg` | `./assets/managed/slots/IMG-028.svg` |
 | IMG-029 | single-store-profit-model.svg | `./assets/managed/slots/IMG-029.svg` | `./assets/managed/slots/IMG-029.svg` |

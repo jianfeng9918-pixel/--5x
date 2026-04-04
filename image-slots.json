@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-03T01:55:29.808Z",
+  "generatedAt": "2026-04-04T00:08:43.159Z",
   "slots": [
     {
       "id": "IMG-034",
@@ -315,12 +315,12 @@
     },
     {
       "id": "IMG-024",
-      "label": "organization-mechanism.svg",
-      "sourcePath": "./assets/extracted/tool-diagrams/organization-mechanism.svg",
-      "sourceRelativePath": "assets/extracted/tool-diagrams/organization-mechanism.svg",
-      "defaultPath": "./assets/managed/slots/IMG-024.svg",
+      "label": "organization-mechanism.png",
+      "sourcePath": "./assets/extracted/tool-diagrams/organization-mechanism.png",
+      "sourceRelativePath": "assets/extracted/tool-diagrams/organization-mechanism.png",
+      "defaultPath": "./assets/managed/slots/IMG-024.png",
       "overridePath": "",
-      "currentPath": "./assets/managed/slots/IMG-024.svg",
+      "currentPath": "./assets/managed/slots/IMG-024.png",
       "recommendedRatio": "auto",
       "usage": "",
       "pageHints": []
@@ -338,13 +338,37 @@
       "pageHints": []
     },
     {
+      "id": "IMG-037",
+      "label": "project-route-8step-browser.png",
+      "sourcePath": "./assets/extracted/tool-diagrams/project-route-8step-browser.png",
+      "sourceRelativePath": "assets/extracted/tool-diagrams/project-route-8step-browser.png",
+      "defaultPath": "./assets/managed/slots/IMG-037.png",
+      "overridePath": "",
+      "currentPath": "./assets/managed/slots/IMG-037.png",
+      "recommendedRatio": "auto",
+      "usage": "",
+      "pageHints": []
+    },
+    {
       "id": "IMG-026",
+      "label": "project-route-8step.png",
+      "sourcePath": "./assets/extracted/tool-diagrams/project-route-8step.png",
+      "sourceRelativePath": "assets/extracted/tool-diagrams/project-route-8step.png",
+      "defaultPath": "./assets/managed/slots/IMG-026.png",
+      "overridePath": "",
+      "currentPath": "./assets/managed/slots/IMG-026.png",
+      "recommendedRatio": "auto",
+      "usage": "",
+      "pageHints": []
+    },
+    {
+      "id": "IMG-036",
       "label": "project-route-8step.svg",
       "sourcePath": "./assets/extracted/tool-diagrams/project-route-8step.svg",
       "sourceRelativePath": "assets/extracted/tool-diagrams/project-route-8step.svg",
-      "defaultPath": "./assets/managed/slots/IMG-026.svg",
+      "defaultPath": "./assets/managed/slots/IMG-036.svg",
       "overridePath": "",
-      "currentPath": "./assets/managed/slots/IMG-026.svg",
+      "currentPath": "./assets/managed/slots/IMG-036.svg",
       "recommendedRatio": "auto",
       "usage": "",
       "pageHints": []

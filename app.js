@@ -123,6 +123,19 @@
       .replace(/^assets\//, "./assets/");
   }
 
+  function resolveAssetUrl(value) {
+    const normalized = normalizeAssetPath(value);
+    if (!normalized) {
+      return "";
+    }
+    try {
+      const base = window.location.href.split("#")[0].split("?")[0];
+      return new URL(normalized, base).href;
+    } catch (_error) {
+      return normalized;
+    }
+  }
+
   function registerImageSlotPath(slot, value) {
     const normalized = normalizeAssetPath(value);
     if (!normalized) {
@@ -1669,18 +1682,26 @@
   }
 
   function decorateDocHtml(html) {
-    return String(html || "").replace(
-      /<p>\s*(<img\b[^>]*alt="([^"]*)"[^>]*>)\s*<\/p>/gi,
-      function (_match, imageTag, altText) {
-        const srcMatch = imageTag.match(/\bsrc="([^"]+)"/i);
-        const rawSrc = srcMatch ? srcMatch[1] : "";
-        const slot = lookupImageSlot(rawSrc);
-        const imageSrc = slot ? slot.currentPath : normalizeAssetPath(rawSrc);
-        const safeImageTag = srcMatch
-          ? imageTag.replace(/\bsrc="([^"]+)"/i, `src="${escapeHtml(imageSrc)}"`)
-          : imageTag;
-        const wrappedImage = imageSrc
-          ? `<a class="doc-figure-link" href="${escapeHtml(imageSrc)}" target="_blank" rel="noreferrer">${safeImageTag}</a>`
+  return String(html || "").replace(
+    /<p>\s*(<img\b[^>]*alt="([^"]*)"[^>]*>)\s*<\/p>/gi,
+    function (_match, imageTag, altText) {
+      const srcMatch = imageTag.match(/\bsrc="([^"]+)"/i);
+      const rawSrc = srcMatch ? srcMatch[1] : "";
+      const slot = lookupImageSlot(rawSrc);
+      // Preserve the authored doc figure asset path so local preview and static
+      // builds keep using the page's actual PNG/JPG instead of being remapped
+      // through slot paths that may diverge or go missing.
+      const normalizedRawSrc = normalizeAssetPath(rawSrc);
+      const imageSrc = normalizedRawSrc || (slot ? normalizeAssetPath(slot.currentPath) : "");
+      const resolvedImageSrc = resolveAssetUrl(imageSrc);
+      const safeImageTag = srcMatch
+        ? imageTag.replace(
+            /\bsrc="([^"]+)"/i,
+            `src="${escapeHtml(resolvedImageSrc)}" data-asset-src="${escapeHtml(imageSrc)}"`
+          )
+        : imageTag;
+      const wrappedImage = resolvedImageSrc
+        ? `<a class="doc-figure-link" href="${escapeHtml(resolvedImageSrc)}" target="_blank" rel="noreferrer">${safeImageTag}</a>`
           : safeImageTag;
         const captionText = altText && altText.trim()
           ? altText.trim()
